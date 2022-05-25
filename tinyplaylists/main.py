@@ -1,3 +1,9 @@
+"""
+main.py
+========
+This is the main file for tinyplaylists.
+"""
+
 from pathlib import Path
 from typing import Dict, Optional
 import os
@@ -7,6 +13,10 @@ from tinyplaylists.track import Track
 
 
 class TinyPlaylists:
+    """
+    The entry point for the library.
+    """
+
     root: Path
     playlists: Dict[str, Playlist]
 
@@ -66,3 +76,6 @@ class TinyPlaylists:
         """
         pl = self.get_playlist(playlist_name)
         return pl.tracks
+
+
+__all__ = ["TinyPlaylists"]

@@ -39,3 +39,6 @@ class Playlist:
         """
         t = self.tracks.pop(id)
         t.path.unlink()
+
+
+__all__ = ["Playlist"]
