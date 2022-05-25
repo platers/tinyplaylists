@@ -51,3 +51,19 @@ def test_uuid_added_to_file_name(library_with_playlists):
     valid_file_name = re.compile(r"^.*-([0-9a-f]{32}).*$")
     for file in os.listdir("test_lib/playlist1"):
         assert valid_file_name.match(file)
+
+
+@pytest.fixture
+def add_track_to_playlist(library_with_playlists):
+    shutil.copy("tests/audiofiles/2-seconds.mp3", "tests/audiofiles/c.mp3")
+    tpl = library_with_playlists
+    yield tpl.import_track(Path("tests/audiofiles/c.mp3"), "playlist2", {"title": "c"})
+    os.remove("tests/audiofiles/c.mp3")
+
+
+def test_add_track_to_playlist(add_track_to_playlist):
+    tpl = TinyPlaylists(Path("test_lib"))
+    pl2 = tpl.get_playlist("playlist2")
+    assert len(pl2.tracks) == 1
+    t = add_track_to_playlist
+    assert t.title == "c"

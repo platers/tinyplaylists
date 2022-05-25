@@ -3,6 +3,7 @@ from typing import Dict
 import os
 
 from tinyplaylists.playlist import Playlist
+from tinyplaylists.track import Track
 
 
 class TinyPlaylists:
@@ -21,3 +22,7 @@ class TinyPlaylists:
 
     def get_playlist(self, name: str):
         return self.playlists[name]
+
+    def import_track(self, file: Path, playlist_name: str, metadata: dict) -> Track:
+        pl = self.get_playlist(playlist_name)
+        return pl.import_track(file, metadata)

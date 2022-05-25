@@ -1,3 +1,4 @@
+import os
 from pathlib import Path
 from typing import Dict
 
@@ -20,3 +21,14 @@ class Playlist:
             if file.is_file():
                 t = Track.from_file(file)
                 self.tracks[t.id] = t
+
+    def import_track(self, file: Path, metadata: dict) -> Track:
+        """
+        Copy the file to the playlist directory and add a Track to the playlist.
+        """
+        target = self.dir / file.name
+        os.link(file, target)
+        t = Track.from_file(target)
+        self.tracks[t.id] = t
+        t.update_metadata(metadata)
+        return t

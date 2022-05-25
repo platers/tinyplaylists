@@ -44,3 +44,10 @@ class Track:
             return match.group(1)
         else:
             return None
+
+    def update_metadata(self, metadata: dict):
+        """
+        Update the track metadata with the given dictionary.
+        """
+        self.title = metadata.get("title")
+        self.artist = metadata.get("artist")
