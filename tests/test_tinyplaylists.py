@@ -67,6 +67,7 @@ def test_add_track_to_playlist(add_track_to_playlist):
     assert len(pl2.tracks) == 1
     t = add_track_to_playlist
     assert t.title == "c"
+    assert tpl.get_track(t.id) == t
 
 
 def test_metadata_added(add_track_to_playlist):

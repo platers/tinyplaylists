@@ -51,10 +51,11 @@ class Track:
 
     def update_metadata(self, metadata: dict):
         """
-        Update the track metadata with the given dictionary.
+        Adds the track metadata with the given dictionary.
         """
-        self.title = metadata.get("title")
-        self.artist = metadata.get("artist")
+
+        self.title = metadata.get("title") or self.title
+        self.artist = metadata.get("artist") or self.artist
 
         tags = music_tag.load_file(self.path)
         tags["tracktitle"] = self.title
