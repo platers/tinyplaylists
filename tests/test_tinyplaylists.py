@@ -77,3 +77,13 @@ def test_metadata_added(add_track_to_playlist):
     pl2 = tpl.get_playlist("playlist2")
     t = pl2.tracks[id]
     assert t.title == "c"
+
+
+def test_create_playlist(library_with_playlists):
+    tpl = library_with_playlists
+    pl3 = tpl.create_playlist("playlist3")
+    assert len(tpl.playlists) == 3
+    assert pl3.name == "playlist3"
+    assert len(pl3.tracks) == 0
+    assert pl3.dir == tpl.root / "playlist3"
+    assert pl3.dir.exists()

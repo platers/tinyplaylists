@@ -32,3 +32,10 @@ class TinyPlaylists:
             if id in pl.tracks:
                 return pl.tracks[id]
         return None
+
+    def create_playlist(self, name: str) -> Playlist:
+        dir = self.root / name
+        os.mkdir(dir)
+        pl = Playlist(dir)
+        self.playlists[name] = pl
+        return pl
