@@ -3,4 +3,3 @@ __pycache__
 .vscode
 .pytest_cache
 docs/_build
-docs/tinyplaylists
