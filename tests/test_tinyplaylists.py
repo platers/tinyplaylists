@@ -87,3 +87,13 @@ def test_create_playlist(library_with_playlists):
     assert len(pl3.tracks) == 0
     assert pl3.dir == tpl.root / "playlist3"
     assert pl3.dir.exists()
+
+
+def test_remove_track(add_track_to_playlist):
+    tpl = TinyPlaylists(Path("test_lib"))
+    id = add_track_to_playlist.id
+    tpl.remove_track(id)
+
+    pl2 = tpl.get_playlist("playlist2")
+    assert id not in pl2.tracks
+    assert not add_track_to_playlist.path.exists()

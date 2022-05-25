@@ -27,15 +27,35 @@ class TinyPlaylists:
         pl = self.get_playlist(playlist_name)
         return pl.import_track(file, metadata)
 
-    def get_track(self, id: str) -> Optional[Track]:
-        for pl in self.playlists.values():
-            if id in pl.tracks:
-                return pl.tracks[id]
-        return None
-
     def create_playlist(self, name: str) -> Playlist:
         dir = self.root / name
         os.mkdir(dir)
         pl = Playlist(dir)
         self.playlists[name] = pl
         return pl
+
+    def find_playlist_with_track(self, track_id: str) -> Playlist:
+        """
+        Find the playlist that contains the track with the given id.
+        Raises ValueError if no playlist contains the track.
+        """
+        for pl in self.playlists.values():
+            if track_id in pl.tracks:
+                return pl
+        raise ValueError(f"No playlist contains track with id {track_id}")
+
+    def get_track(self, id: str) -> Track:
+        """
+        Find the track with the given id.
+        Returns None if no playlist contains the track.
+        """
+        pl = self.find_playlist_with_track(id)
+        return pl.tracks[id]
+
+    def remove_track(self, id: str):
+        """
+        Remove the track with the given id from the playlist.
+        """
+
+        pl = self.find_playlist_with_track(id)
+        pl.remove_track(id)

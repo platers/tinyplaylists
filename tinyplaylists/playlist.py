@@ -32,3 +32,10 @@ class Playlist:
         self.tracks[t.id] = t
         t.update_metadata(metadata)
         return t
+
+    def remove_track(self, id: str):
+        """
+        Remove the track with the given id from the playlist.
+        """
+        t = self.tracks.pop(id)
+        t.path.unlink()
