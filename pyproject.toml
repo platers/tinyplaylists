@@ -6,6 +6,7 @@ authors = ["platers <platers81@gmail.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.7"
+music-tag = "^0.4.3"
 
 [tool.poetry.dev-dependencies]
 black = "^22.3.0"

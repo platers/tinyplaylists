@@ -3,6 +3,7 @@ from pathlib import Path
 from typing import Optional
 import uuid
 import re
+import music_tag
 
 
 @dataclass
@@ -29,7 +30,10 @@ class Track:
             id = uuid.uuid4().hex
             file = add_uuid_to_file(id)
 
-        return cls(id=id, path=file, title=None, artist=None)
+        tags = music_tag.load_file(file)
+        return cls(
+            id=id, path=file, title=str(tags["title"]), artist=str(tags["artist"])
+        )
 
     @staticmethod
     def file_uuid(file_name: str) -> Optional[str]:
@@ -51,3 +55,8 @@ class Track:
         """
         self.title = metadata.get("title")
         self.artist = metadata.get("artist")
+
+        tags = music_tag.load_file(self.path)
+        tags["tracktitle"] = self.title
+        tags["artist"] = self.artist
+        tags.save()

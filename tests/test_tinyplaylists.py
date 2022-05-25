@@ -67,3 +67,12 @@ def test_add_track_to_playlist(add_track_to_playlist):
     assert len(pl2.tracks) == 1
     t = add_track_to_playlist
     assert t.title == "c"
+
+
+def test_metadata_added(add_track_to_playlist):
+    id = add_track_to_playlist.id
+
+    tpl = TinyPlaylists(Path("test_lib"))
+    pl2 = tpl.get_playlist("playlist2")
+    t = pl2.tracks[id]
+    assert t.title == "c"
