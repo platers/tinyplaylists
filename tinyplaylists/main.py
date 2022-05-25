@@ -59,3 +59,10 @@ class TinyPlaylists:
 
         pl = self.find_playlist_with_track(id)
         pl.remove_track(id)
+
+    def playlist_tracks(self, playlist_name: str) -> Dict[str, Track]:
+        """
+        Return a dictionary of the tracks in the given playlist. The keys are the track ids.
+        """
+        pl = self.get_playlist(playlist_name)
+        return pl.tracks

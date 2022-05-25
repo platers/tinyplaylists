@@ -97,3 +97,12 @@ def test_remove_track(add_track_to_playlist):
     pl2 = tpl.get_playlist("playlist2")
     assert id not in pl2.tracks
     assert not add_track_to_playlist.path.exists()
+
+
+def test_playlist_tracks(library_with_playlists):
+    tpl = library_with_playlists
+    tracks = tpl.playlist_tracks("playlist1")
+    assert len(tracks) == 2
+    values = list(tracks.values())
+    assert values[0].title == "a"
+    assert values[1].title == "b"
