@@ -30,11 +30,10 @@ author = "platers"
 # ones.
 extensions = [
     "sphinx.ext.autodoc",
+    "sphinx.ext.autosummary",
     "sphinx.ext.napoleon",
-    "sphinx.ext.inheritance_diagram",
-    "autoapi.sphinx",
 ]
-autoapi_modules = {"tinyplaylists": None}
+autosummary_generate = True
 
 
 # Add any paths that contain templates here, relative to this directory.

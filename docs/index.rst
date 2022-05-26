@@ -1,13 +1,23 @@
 Welcome to tinyplaylists's documentation!
 =========================================
 
-.. toctree::
-   tinyplaylists/tinyplaylists
 
+TinyPlaylists
+-------------
+.. autoclass:: tinyplaylists.main.TinyPlaylists
+   :members:
+   :undoc-members:
 
-Indices and tables
-==================
+Playlist
+--------
 
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+.. autoclass:: tinyplaylists.playlist.Playlist
+   :members:
+   :undoc-members:
+
+Track
+-----
+.. autoclass:: tinyplaylists.track.Track
+   :members:
+   :undoc-members:
+
