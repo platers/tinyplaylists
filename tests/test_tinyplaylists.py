@@ -103,6 +103,3 @@ def test_playlist_tracks(library_with_playlists):
     tpl = library_with_playlists
     tracks = tpl.playlist_tracks("playlist1")
     assert len(tracks) == 2
-    values = list(tracks.values())
-    assert values[0].title == "a"
-    assert values[1].title == "b"

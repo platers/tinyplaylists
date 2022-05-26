@@ -1,4 +1,4 @@
-[![Documentation Status](https://readthedocs.org/projects/tinyplaylists/badge/?version=latest)](https://tinyplaylists.readthedocs.io/en/latest/?badge=latest)
+[![Documentation Status](https://readthedocs.org/projects/tinyplaylists/badge/?version=latest)](https://tinyplaylists.readthedocs.io/en/latest/?badge=latest) [![PyTest](https://github.com/platers/tinyplaylists/actions/workflows/actions.yml/badge.svg)](https://github.com/platers/tinyplaylists/actions/workflows/actions.yml)
 
 # tinyplaylists
 
