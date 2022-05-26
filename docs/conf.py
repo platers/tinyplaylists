@@ -34,6 +34,7 @@ extensions = [
     "sphinx.ext.napoleon",
 ]
 autosummary_generate = True
+autodoc_mock_imports = ["music_tag"]
 
 
 # Add any paths that contain templates here, relative to this directory.
