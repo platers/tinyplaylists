@@ -1,4 +1,4 @@
-[![Documentation Status](https://readthedocs.org/projects/tinyplaylists/badge/?version=latest)](https://tinyplaylists.readthedocs.io/en/latest/?badge=latest) [![PyTest](https://github.com/platers/tinyplaylists/actions/workflows/actions.yml/badge.svg)](https://github.com/platers/tinyplaylists/actions/workflows/actions.yml)
+[![Documentation Status](https://readthedocs.org/projects/tinyplaylists/badge/?version=latest)](https://tinyplaylists.readthedocs.io/en/latest/?badge=latest) [![PyTest](https://github.com/platers/tinyplaylists/actions/workflows/actions.yml/badge.svg)](https://github.com/platers/tinyplaylists/actions/workflows/actions.yml) [![PyPI version](https://badge.fury.io/py/tinyplaylists.svg)](https://badge.fury.io/py/tinyplaylists)
 
 # tinyplaylists
 
@@ -26,3 +26,9 @@ An example library is shown below.
 ```
 
 Track metadata is stored in the audio file.
+
+## Installation
+
+```
+pip install tinyplaylists
+```
