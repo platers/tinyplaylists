@@ -13,22 +13,23 @@ class Track:
     title: Optional[str]
     artist: Optional[str]
 
+    @staticmethod
+    def add_uuid_to_file(file: Path) -> Path:
+        """Renames the file to include a UUID. Returns the new file path."""
+        target = file.parent / f"{file.stem}-{uuid.uuid4().hex}{file.suffix}"
+        file.rename(target)
+        return target
+
     @classmethod
     def from_file(cls, file: Path):
         """
         Initialize a Track from a file. Adds a UUID to the file name if it doesn't already have one.
         """
 
-        def add_uuid_to_file(id: str) -> Path:
-            """Renames the file to include a UUID. Returns the new file path."""
-            target = file.parent / f"{file.stem}-{id}{file.suffix}"
-            file.rename(target)
-            return target
-
         id = cls.file_uuid(file.name)
         if id is None:
-            id = uuid.uuid4().hex
-            file = add_uuid_to_file(id)
+            file = cls.add_uuid_to_file(file)
+            return cls.from_file(file)  # try again with the new file
 
         tags = music_tag.load_file(file)
         return cls(
