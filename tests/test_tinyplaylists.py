@@ -3,7 +3,7 @@ from pathlib import Path
 import re
 import shutil
 import pytest
-from tinyplaylists.main import TinyPlaylists
+from tinyplaylists import TinyPlaylists
 
 
 @pytest.fixture

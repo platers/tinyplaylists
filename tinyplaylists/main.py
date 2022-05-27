@@ -5,7 +5,7 @@ This is the main file for tinyplaylists.
 """
 
 from pathlib import Path
-from typing import Dict, Optional
+from typing import Dict
 import os
 
 from tinyplaylists.playlist import Playlist
@@ -76,6 +76,3 @@ class TinyPlaylists:
         """
         pl = self.get_playlist(playlist_name)
         return pl.tracks
-
-
-__all__ = ["TinyPlaylists"]

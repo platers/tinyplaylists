@@ -61,6 +61,3 @@ class Track:
         tags["tracktitle"] = self.title
         tags["artist"] = self.artist
         tags.save()
-
-
-__all__ = ["Track"]
