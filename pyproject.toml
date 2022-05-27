@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "tinyplaylists"
-version = "0.1.0"
+version = "0.1.1"
 description = "A tiny library to organize audio files"
 authors = ["platers <platers81@gmail.com>"]
 
